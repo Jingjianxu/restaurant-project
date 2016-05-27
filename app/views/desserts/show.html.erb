@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Dessert: <%= @dessert.dish %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Image</dt>
+      <dd><img src="<%= @dessert.image_url %>" width="600"></dd>
+      <dt>Dish</dt>
+      <dd><%= @dessert.dish %></dd>
+
+      <dt>Price</dt>
+      <dd><%= @dessert.price %></dd>
+
+      <dt>Sweet or Salty</dt>
+      <dd><%= truncate(@dessert.sweet_or_salty) %></dd>
+
+
+
+
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/desserts" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/desserts/<%= @dessert.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_dessert/<%= @dessert.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

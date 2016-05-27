@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @recommendation.errors.any? %>
+  <% @recommendation.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Recommendation: <%= @recommendation.dish %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_recommendation/<%= @recommendation.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="dish" class="control-label">
+          Dish
+        </label>
+
+        <input type="text" id="dish" name="dish" placeholder="Dish" class="form-control" value="<%= @recommendation.dish %>">
+      </div>
+
+      <!-- Label and input for dob -->
+      <div class="form-group">
+        <label for="price" class="control-label">
+          Price
+        </label>
+
+        <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="<%= @recommendation.price %>">
+      </div>
+
+      <!-- Label and input for bio -->
+      <div class="form-group">
+        <label for="spicy" class="control-label">
+          Spicy
+        </label>
+
+        <textarea id="spicy" name="spicy" placeholder="Spicy" class="form-control" rows="3"><%= @recommendation.spicy %></textarea>
+      </div>
+
+      <!-- Label and input for image_url -->
+      <div class="form-group">
+        <label for="image_url" class="control-label">
+          Image url
+        </label>
+
+        <input type="text" id="image_url" name="image_url" placeholder="Image url" class="form-control" value="<%= @recommendation.image_url %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Recommendation
+      </button>
+      or
+      <a href="/recommendations/<%= @recommendation.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+
+
+
+
+
+<div class="page-header">
+  <h3>Sign In</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_session" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+      <div class="form-group">
+        <label for="email" class="control-label">
+          Email
+        </label>
+
+        <input type="text" id="email" name="email" placeholder="Email" class="form-control">
+      </div>
+
+      <!-- Label and input for password -->
+      <div class="form-group">
+        <label for="password" class="control-label">
+          Password
+        </label>
+
+        <input type="text" id="password" name="password" placeholder="Password" class="form-control">
+      </div>
+
+
+
+
+      <button class="btn btn-success">
+        Sign in
+      </button>
+      or
+      <a href="/sessions">Cancel</a>
+    </form>
+  </div>
+</div>

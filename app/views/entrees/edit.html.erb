@@ -1,0 +1,59 @@
+<!-- Validation failure messages -->
+<% if @entree.errors.any? %>
+  <% @entree.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Entree: <%= @entree.dish %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_entree/<%= @entree.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for movie_id -->
+      <div class="form-group">
+        <label for="entree" class="control-label">
+          Dish
+        </label>
+
+        <input type="text" id="entree" name="dish" placeholder="Entree" class="form-control" value="<%= @entree.dish %>">
+      </div>
+
+      <div class="form-group">
+        <label for="price" class="control-label">
+          Price
+        </label>
+
+        <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="<%= @entree.price %>">
+      </div>
+
+      <div class="form-group">
+        <label for="spicy" class="control-label">
+          Spicy
+        </label>
+        <textarea id="spicy" name="spicy" placeholder="Spicy" class="form-control" rows="3"><%= @entree.spicy %></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Image url
+        </label>
+        <input name="image_url" type="text" id="image_url" placeholder="image_url" class="form-control" value="<%= @entree.image_url %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Entree
+      </button>
+      or
+      <a href="/entrees/<%= @entree.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

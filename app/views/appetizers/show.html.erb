@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h3>Appetizer: <%= @appetizer.dish %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Image</dt>
+      <dd><img src="<%= @appetizer.image_url %>" width="600"></dd>
+      <dt>Dish</dt>
+      <dd><%= @appetizer.dish %></dd>
+
+      <dt>Price</dt>
+      <dd><%= @appetizer.price %></dd>
+
+      <dt>Spicy</dt>
+      <dd><%= truncate(@appetizer.spicy) %></dd>
+      <dt>Hot</dt>
+      <dd><%= truncate(@appetizer.hot) %></dd>
+
+  </dl>
+    <div class="btn-group btn-group-justified">
+      <a href="/appetizers" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/appetizers/<%= @appetizer.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_appetizer/<%= @appetizer.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

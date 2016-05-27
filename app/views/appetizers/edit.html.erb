@@ -1,0 +1,76 @@
+<!-- Validation failure messages -->
+<% if @appetizer.errors.any? %>
+  <% @appetizer.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Appetizer: <%= @appetizer.dish %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_appetizer/<%= @appetizer.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="dish" class="control-label">
+          Dish
+        </label>
+
+        <input type="text" id="dish" name="dish" placeholder="Dish" class="form-control" value="<%= @appetizer.dish %>">
+      </div>
+
+      <!-- Label and input for year -->
+      <div class="form-group">
+        <label for="price" class="control-label">
+          Price
+        </label>
+
+        <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="<%= @appetizer.price %>">
+      </div>
+
+      <!-- Label and input for duration -->
+      <div class="form-group">
+        <label for="hot" class="control-label">
+          Hot
+        </label>
+
+        <input type="text" id="hot" name="hot" placeholder="Hot" class="form-control" value="<%= @appetizer.hot %>">
+      </div>
+      <div class="form-group">
+        <label for="hot" class="control-label">
+          Spicy
+        </label>
+
+        <input type="text" id="spicy" name="spicy" placeholder="Spicy" class="form-control" value="<%= @appetizer.spicy %>">
+      </div>
+
+
+
+      <!-- Label and input for image_url -->
+      <div class="form-group">
+        <label for="image_url" class="control-label">
+          Image url
+        </label>
+
+        <input type="text" id="image_url" name="image_url" placeholder="Image url" class="form-control" value="<%= @appetizer.image_url %>">
+      </div>
+
+      <!-- Label and input for director_id -->
+
+
+      <button class="btn btn-warning">
+        Update Appetizer
+      </button>
+      or
+      <a href="/appetizers/<%= @appetizer.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

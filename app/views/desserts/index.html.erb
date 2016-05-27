@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h1>
+    Desserts
+    <a href="/desserts/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th></th>
+        <th>Dish</th>
+        <th>Price</th>
+        <th>Sweet or salty</th>
+        <th></th>
+        <th></th>
+
+      </tr></thead>
+      <tr>
+        <% @desserts.each do |dessert| %>
+
+        <td><img src="<%= dessert.image_url %>" width="50"></td>
+        <td><%= dessert.dish %></td>
+        <td><%= dessert.price %></td>
+        <td><%= dessert.sweet_or_salty %></td>
+        <th></th>
+        <td>
+          <a href="/desserts/<%= dessert.id %>" class="btn btn-primary">Show</a>
+          <a href="/desserts/<%= dessert.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_dessert/<%= dessert.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+
+
+    </table>
+  </div>
+</div>

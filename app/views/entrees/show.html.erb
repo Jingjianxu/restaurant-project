@@ -1,0 +1,38 @@
+<div class="page-header">
+  <h3>Entree: <%= @entree.dish %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+
+      <dt>Image</dt>
+      <dd><img src="<%= @entree.image_url %>" width="600"></dd>
+      <dt>Dish</dt>
+      <dd><%= @entree.dish %></dd>
+
+      <dt>Price</dt>
+      <dd><%= @entree.price %></dd>
+
+      <dt>Spicy</dt>
+      <dd><%= truncate(@entree.spicy) %></dd>
+
+
+
+
+
+
+
+    <div class="btn-group btn-group-justified">
+      <a href="/entrees" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/entrees/<%= @entree.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_entree/<%= @entree.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @dessert.errors.any? %>
+  <% @dessert.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Dessert: <%= @dessert.dish %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_dessert/<%= @dessert.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="dish" class="control-label">
+          Dish
+        </label>
+
+        <input type="text" id="dish" name="dish" placeholder="Dish" class="form-control" value="<%= @dessert.dish %>">
+      </div>
+
+      <!-- Label and input for dob -->
+      <div class="form-group">
+        <label for="price" class="control-label">
+          Price
+        </label>
+
+        <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="<%= @dessert.price %>">
+      </div>
+
+      <!-- Label and input for bio -->
+      <div class="form-group">
+        <label for="sweet_or_salty" class="control-label">
+          Sweet or Salty
+        </label>
+
+        <textarea id="sweet_or_salty" name="sweet_or_salty" placeholder="Sweet or Salty" class="form-control" rows="3"><%= @dessert.sweet_or_salty %></textarea>
+      </div>
+
+      <!-- Label and input for image_url -->
+      <div class="form-group">
+        <label for="image_url" class="control-label">
+          Image url
+        </label>
+
+        <input type="text" id="image_url" name="image_url" placeholder="Image url" class="form-control" value="<%= @dessert.image_url %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Dessert
+      </button>
+      or
+      <a href="/desserts/<%= @dessert.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

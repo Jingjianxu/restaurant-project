@@ -1,0 +1,66 @@
+<!-- Validation failure messages -->
+<% if @account.errors.any? %>
+  <% @account.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+
+<div class="page-header">
+  <h3>Sign up now</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_account" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for movie_id -->
+      <div class="form-group">
+        <label class="control-label">
+          Username
+        </label>
+        <input name="username" type="text" placeholder="Username" class="form-control" value="<%= @account.username %>">
+      </div>
+
+      <div class="form-group">
+        <label for="actor_id" class="control-label">
+          Email
+        </label>
+        <input name="email" type="text" placeholder="Email" class="form-control" value="<%= @account.username %>">
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">
+          First name
+        </label>
+        <input name="firstname" type="text" placeholder="Firstname" class="form-control" value="<%= @account.firstname %>">
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">
+          Last name
+        </label>
+        <input name="lastname" type="text" placeholder="Lastname" class="form-control" value="<%= @account.lastname %>">
+      </div>
+
+      <div class="form-group">
+        <label for="actor_id" class="control-label">
+          Password
+        </label>
+        <input name="password" type="text" id="price" placeholder="Password" class="form-control" value="<%= @account.password %>">
+      </div>
+
+
+      <button class="btn btn-success">
+        Create Account
+      </button>
+      or
+      <a href="/accounts">Cancel</a>
+    </form>
+  </div>
+</div>
